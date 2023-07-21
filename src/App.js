@@ -20,10 +20,20 @@ function Logo() {
 }
 
 function Form() {
+  // event handler
+  function handleSubmit(e) {
+    // the line below prevents the page from reloading
+    e.preventDefault();
+  }
+
   return (
-    <form className="add-form">
+    <form className="add-form" onSubmit={handleSubmit}>
       <h3>What do you need for your trip?</h3>
       <select>
+        {/* An empty array of 20 elements is created using Array.from */}
+        {/* i + 1 then creates an array with values from 1-20 */}
+        {/* .map is used to iterate over each element in the array */}
+        {/* each option element will then have a numeric value from 1-20 for the select dropdown menu */}
         {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
           <option value={num} key={num}>
             {num}
