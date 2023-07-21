@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const initialItems = [
   { id: 1, description: "Passports", quantity: 2, packed: false },
   { id: 2, description: "Socks", quantity: 12, packed: true },
@@ -5,11 +7,18 @@ const initialItems = [
 ];
 
 export default function App() {
+  const [items, setItems] = useState([]);
+
+  function handleAddItem(item) {
+    //spread operator (...) creates a new array by expanding the elements of the existing array
+    setItems((items) => [...items, item]);
+  }
+
   return (
     <div className="app">
       <Logo />
-      <Form />
-      <PackingList />
+      <Form onAddItems={handleAddItem} />
+      <PackingList items={items} />
       <Stats />
     </div>
   );
@@ -19,17 +28,37 @@ function Logo() {
   return <h1>🏝 Far Away 🧳</h1>;
 }
 
-function Form() {
+function Form({ onAddItems }) {
+  const [description, setDescription] = useState("");
+  const [quantity, setQuantity] = useState(1);
+
   // event handler
   function handleSubmit(e) {
-    // the line below prevents the page from reloading
     e.preventDefault();
+
+    if (!description) return;
+
+    const newItem = {
+      description,
+      quantity,
+      packed: false,
+      id: Date.now(),
+    };
+    console.log(newItem);
+
+    onAddItems(newItem);
+
+    setQuantity(1);
+    setDescription("");
   }
 
   return (
     <form className="add-form" onSubmit={handleSubmit}>
       <h3>What do you need for your trip?</h3>
-      <select>
+      <select
+        value={quantity}
+        onChange={(e) => setQuantity(Number(e.target.value))}
+      >
         {/* An empty array of 20 elements is created using Array.from */}
         {/* i + 1 then creates an array with values from 1-20 */}
         {/* .map is used to iterate over each element in the array */}
@@ -40,17 +69,22 @@ function Form() {
           </option>
         ))}
       </select>
-      <input type="text" placeholder="Item..." />
+      <input
+        type="text"
+        placeholder="Item..."
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+      />
       <button>Add</button>
     </form>
   );
 }
 
-function PackingList() {
+function PackingList({ items }) {
   return (
     <div className="list">
       <ul>
-        {initialItems.map((item) => (
+        {items.map((item) => (
           <Item item={item} key={item.id} />
         ))}
       </ul>
