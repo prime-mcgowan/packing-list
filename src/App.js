@@ -13,8 +13,11 @@ export default function App() {
   }
 
   function handleToggleItem(id) {
+    // * the items array will be looped over using .map
+    // * the entire array will be returned with on object having been updated with line-through text decoration
     setItems((items) =>
       items.map((item) =>
+        // * spread operator (...) creates the new array with the matching id's packed status (from false to true) as "packed" = line-through
         item.id === id ? { ...item, packed: !item.packed } : item
       )
     );
