@@ -24,7 +24,10 @@ export default function App() {
   }
 
   function handleDeleteAllItems() {
-    setItems([]);
+    const confirmed = window.confirm(
+      "Are you sure you want to delete ALL items?"
+    );
+    if (confirmed) setItems([]);
   }
 
   return (
