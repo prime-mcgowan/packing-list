@@ -128,6 +128,13 @@ function Item({ item, onDeleteItem, onToggleItem }) {
 }
 
 function Stats({ items }) {
+  if (!items.length)
+    return (
+      <p className="stats">
+        <em>🏁 Start Packing!! 🏁</em>
+      </p>
+    );
+
   const numItems = items.length;
   const numPacked = items.filter((item) => item.packed).length;
   const percentage = Math.round((numPacked / numItems) * 100);
@@ -135,8 +142,10 @@ function Stats({ items }) {
   return (
     <footer className="stats">
       <em>
-        You have {numItems} on your list, you've already packed {numPacked}(
-        {percentage}%)
+        {percentage === 100
+          ? "Success!! You are ready to GO!! ✈️"
+          : `You have ${numItems} on your list, you've already packed ${numPacked}
+          (${percentage}%)`}
       </em>
     </footer>
   );
