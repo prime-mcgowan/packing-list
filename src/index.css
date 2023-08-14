@@ -44,6 +44,14 @@ h1 {
   padding: 2.4rem 0;
 }
 
+.suitcase {
+  padding-right: 20px;
+}
+
+.island {
+  padding-left: 13px;
+}
+
 .add-form {
   background-color: #e5771f;
   padding: 2.8rem 0;

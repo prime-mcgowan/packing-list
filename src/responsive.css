@@ -5,16 +5,31 @@
   /* Center-align the logo */
   .emojilogo {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
   }
 
   .app-name {
-    font-style: italic;
-    /* margin: 5rem 0; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 52px;
   }
-  .emoji {
-    display: none;
+
+  /* .suitcase .island {
+    display: inline;
+    font-size: 100px;
+  } */
+
+  .suitcase {
+    font-size: 75px;
+    margin-left: 10px;
+  }
+
+  .island {
+    font-size: 75px;
+    margin-right: 10px;
   }
 
   /* Stack elements vertically */

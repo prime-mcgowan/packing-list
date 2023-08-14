@@ -53,9 +53,9 @@ export default function App() {
 function Logo() {
   return (
     <h1 className="emojilogo">
-      <span className="emoji">🧳</span>
+      <span className="suitcase">🧳</span>
       <span className="app-name">Far Away</span>
-      <span className="emoji">🏝</span>
+      <span className="island">🏝</span>
     </h1>
   );
 }
