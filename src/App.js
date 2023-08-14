@@ -4,7 +4,7 @@ export default function App() {
   const [items, setItems] = useState([]);
 
   function handleAddItem(item) {
-    //* spread operator (...) creates a new array by expanding the elements of the existing array
+    //* spread operator (...) creates a new array by expanding the elements of the existing array and adding the newest element
     setItems((items) => [...items, item]);
   }
 
