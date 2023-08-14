@@ -51,7 +51,13 @@ export default function App() {
 }
 
 function Logo() {
-  return <h1>🧳 Far Away 🏝 </h1>;
+  return (
+    <h1 className="emojilogo">
+      <span className="emoji">🧳</span>
+      <span className="app-name">Far Away</span>
+      <span className="emoji">🏝</span>
+    </h1>
+  );
 }
 
 function Form({ onAddItems }) {
