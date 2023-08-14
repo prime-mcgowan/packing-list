@@ -43,6 +43,10 @@
     text-align: center; /* Center items horizontally */
   }
 
+  h3 {
+    padding-right: 5px;
+  }
+
   /* Add some spacing between the elements */
   .add-form h3,
   .add-form select,
