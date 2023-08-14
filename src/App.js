@@ -4,13 +4,14 @@ export default function App() {
   const [items, setItems] = useState([]);
 
   function handleAddItem(item) {
-    //spread operator (...) creates a new array by expanding the elements of the existing array
+    //* spread operator (...) creates a new array by expanding the elements of the existing array
     setItems((items) => [...items, item]);
   }
 
   // * setItems is called with callback function and receives the current `items` array as a parameter
   // * the .filter method is used to check each item in the items array...using the item.id !== id condition
   // * if the item's `id` DOES NOT match the `id` passed in then it stays in the array...otherwise that item is deleted
+  // ! the original `items` array is immutable - it is not being directly modified, rather a new array is created with the filtered content
   function handleDeleteItem(id) {
     setItems((items) => items.filter((item) => item.id !== id));
   }
@@ -33,6 +34,7 @@ export default function App() {
     if (confirmed) setItems([]);
   }
 
+  // * Application components rendered here:
   return (
     <div className="app">
       <Logo />
@@ -56,8 +58,10 @@ function Form({ onAddItems }) {
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState(1);
 
-  // event handler
+  // Event Handler
   function handleSubmit(e) {
+    // * 👇 prevents the default form submission action from happening
+    // * allowing the form to be handled in the `Form` component's `handleSubmit` function
     e.preventDefault();
 
     if (!description) return;
@@ -66,12 +70,14 @@ function Form({ onAddItems }) {
       description,
       quantity,
       packed: false,
-      id: Date.now(),
+      id: Date.now(), //* creates a unique timestamp for the newItem
     };
-    console.log(newItem);
+    // console.log(newItem);
 
+    // * this function is defined in `App` and has been passed in as a prop
     onAddItems(newItem);
 
+    // * form inputs are reset after the newItem is added
     setQuantity(1);
     setDescription("");
   }
