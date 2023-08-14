@@ -137,3 +137,10 @@ input[type="checkbox"] {
   font-weight: 700;
   padding: 3.2rem 0;
 }
+
+/* Example media query for small screens */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}

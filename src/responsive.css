@@ -1,0 +1,19 @@
+/* Default styles */
+
+/* Mobile devices (up to 767px) */
+@media (max-width: 767px) {
+  /* Stack elements vertically */
+  .add-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+  }
+
+  /* Add some spacing between the elements */
+  .add-form h3,
+  .add-form select,
+  .add-form input,
+  .add-form button {
+    margin: 5px 0; /* Adjust spacing as needed */
+  }
+}

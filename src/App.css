@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+/* Example media query for small screens */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}
