@@ -115,16 +115,24 @@ function PackingList({ items, onDeleteItem, onToggleItem, onDeleteAllItems }) {
 
   let sortedItems;
 
+  // * default sorting  = original `items` array
   if (sortBy === "input") sortedItems = items;
 
   if (sortBy === "description")
     sortedItems = items
+      // * copies the original items array
       .slice()
+      // * sorts the `items` array based on the `description` property
+      // * localCompare() function compares the `description` strings of two items (a,b) and sorts alphabetically
       .sort((a, b) => a.description.localeCompare(b.description));
 
   if (sortBy === "packed")
     sortedItems = items
+      // * copies the original items array
       .slice()
+      // * sorts the `items` array based on `packed` property
+      // * numeric values of the `packed` property are used / false = 0 and true = 1
+      // * two items are compared (-1 result = a before b), (0 result = unchanged order) and (1 result = a after b)
       .sort((a, b) => Number(a.packed) - Number(b.packed));
 
   return (
