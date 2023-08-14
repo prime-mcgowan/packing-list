@@ -54,7 +54,9 @@ function Logo() {
   return (
     <h1 className="emojilogo">
       <span className="suitcase">🧳</span>
-      <span className="app-name">Far Away</span>
+      <span className="app-name">
+        Pack<span className="apos">'</span>d
+      </span>
       <span className="island">🏝</span>
     </h1>
   );
