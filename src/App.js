@@ -168,7 +168,8 @@ function Item({ item, onDeleteItem, onToggleItem }) {
         value={item.packed}
         onChange={() => onToggleItem(item.id)}
       />
-      {/* using the ternary operator to conditionally render a line through "packed" items */}
+      {/* using the ternary operator to conditionally render a line through "packed" items  
+          or there will just be an empty styling object {} */}
       <span style={item.packed ? { textDecoration: "line-through" } : {}}>
         {item.quantity} {item.description}
       </span>
@@ -185,8 +186,15 @@ function Stats({ items }) {
       </p>
     );
 
+  // * total number of items in the list
   const numItems = items.length;
+
+  // * each `item` in the `items` array is looked at and the item.packed filter condition is applied
+  // * if the item's `packed` property is true it is kept
+  // * the resulting array contains only packed `items` and .length gets the exact number
   const numPacked = items.filter((item) => item.packed).length;
+
+  // * calculates the percentage of items packed rounded to the nearest whole number
   const percentage = Math.round((numPacked / numItems) * 100);
 
   return (
@@ -194,8 +202,8 @@ function Stats({ items }) {
       <em>
         {percentage === 100
           ? "Success!! You are ready to GO!! ✈️"
-          : `You have ${numItems} on your list, you've already packed ${numPacked}
-          (${percentage}%)`}
+          : `You have ${numItems} item(s) on your list, you have packed ${numPacked} of them.
+          You are currenlty ${percentage}% packed.`}
       </em>
     </footer>
   );
