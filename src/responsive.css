@@ -16,4 +16,14 @@
   .add-form button {
     margin: 5px 0; /* Adjust spacing as needed */
   }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+  }
+
+  .actions button {
+    margin: 10px 0; /* Adjust spacing as needed */
+  }
 }
