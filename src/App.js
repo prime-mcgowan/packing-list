@@ -8,13 +8,16 @@ export default function App() {
     setItems((items) => [...items, item]);
   }
 
+  // * setItems is called with callback function and receives the current `items` array as a parameter
+  // * the .filter method is used to check each item in the items array...using the item.id !== id condition
+  // * if the item's `id` DOES NOT match the `id` passed in then it stays in the array...otherwise that item is deleted
   function handleDeleteItem(id) {
     setItems((items) => items.filter((item) => item.id !== id));
   }
 
   function handleToggleItem(id) {
     // * the items array will be looped over using .map
-    // * the entire array will be returned with on object having been updated with line-through text decoration
+    // * the entire array will be returned with an object having been updated with line-through text decoration
     setItems((items) =>
       items.map((item) =>
         // * spread operator (...) creates the new array with the matching id's packed status (from false to true) as "packed" = line-through
