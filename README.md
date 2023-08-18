@@ -35,6 +35,4 @@ Run npm install to install the necessary dependencies.
 Run npm start to start the development server.
 Open your browser and go to http://localhost:3000 to see the app in action!
 
-Feel free to explore the code and experiment with adding, deleting, and marking items as packed. Happy packing!
-
-Feel free to explore the code and experiment with adding, deleting, and marking items as packed. Happy packing!
+Feel free to explore the code and experiment with adding, deleting, sorting and marking items as packed. Happy packing!
