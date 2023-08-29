@@ -1,6 +1,6 @@
-## Pack'd App
+## Packd App
 
-Welcome to the Pack'd App!
+Welcome to the Packd App!
 
 This is a React application that helps you keep track of items you need to pack for a trip. Let's go through the main parts of the code to understand how the app works.
 
